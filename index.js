@@ -3,6 +3,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var Knex = require('knex');
+var cors = require('cors')
 
 var jsonParser = bodyParser.json();
 
