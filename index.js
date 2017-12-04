@@ -4,7 +4,9 @@ var app = express();
 var bodyParser = require('body-parser');
 var Knex = require('knex');
 var jsonParser = bodyParser.json()
-
+app.get('/', function (req, res) {
+    res.send('Welcome to db bridge');
+ })
 app.get('/test', function (req, res) {
    res.send('test complete!');
 })
