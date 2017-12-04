@@ -31,10 +31,15 @@ app.post('/bridge',jsonParser, function (request, response) {
         });
     }
     const resFunc = (r) => {
-        console.log('db res:', r)
+         console.log('db res:', r[0])
         knex.destroy();
+        const data = r[0].map((obj,i)=>{
+
+            const props = Object.getOwnPropertyNames(obj);
+            return  props[0].indexOf(request.body.con.database) > -1 ? obj[props[0]]: obj;
+        })
         response.json({
-            result: r
+            result: data
         });
     }
     const errFunc = (r) => {
