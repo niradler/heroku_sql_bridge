@@ -1,0 +1,24 @@
+{
+  "name": "heroku_sql_bridge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niradler/heroku_sql_bridge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niradler/heroku_sql_bridge/issues"
+  },
+  "homepage": "https://github.com/niradler/heroku_sql_bridge#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "knex": "^0.14.2",
+    "mysql": "^2.15.0"
+  }
+}
