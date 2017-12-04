@@ -1,13 +1,16 @@
 
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+var Knex = require('knex');
+var jsonParser = bodyParser.json()
 
 app.get('/test', function (req, res) {
    res.send('test complete!');
 })
-app.post('/bridge', function (request, response) {
+app.post('/bridge',jsonParser, function (request, response) {
     function initDb(con) {
-        //console.log('initDb',con)
+        console.log('initDb',con)
         return new Knex({
             client: 'mysql',
             connection: {
@@ -70,6 +73,7 @@ app.post('/bridge', function (request, response) {
         var knex = initDb(request.body.con);
         getAction().then(resFunc).catch(errFunc);
     } catch (e) {
+        console.log('err',e)
         response.json({
             err: e
         });
