@@ -3,13 +3,19 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var Knex = require('knex');
-var jsonParser = bodyParser.json()
+
+var jsonParser = bodyParser.json();
+
+app.use(cors());
+
 app.get('/', function (req, res) {
     res.send('Welcome to db bridge');
  })
+
 app.get('/test', function (req, res) {
    res.send('test complete!');
 })
+
 app.post('/bridge',jsonParser, function (request, response) {
     function initDb(con) {
         console.log('initDb',con)
